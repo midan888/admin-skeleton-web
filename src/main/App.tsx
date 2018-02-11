@@ -1,19 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import {
   BrowserRouter,
   Route,
   Switch,
 } from 'react-router-dom';
-import { Search, Form } from 'admin/index';
+import AdminForm from '../admin/AdminForm/AdminForm';
 import Layout from './Layout/Layout';
-
 
 const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
-        <Route exact path="/" component={Search} />
-        <Route path="/admin/:id" component={Form} />
+        <Route path="/admin/create" component={AdminForm} />
       </Switch>
     </Layout>
   </BrowserRouter>

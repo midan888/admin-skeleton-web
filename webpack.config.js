@@ -13,19 +13,20 @@ const VENDOR_LIBS = [
   'react-redux',
   'react-router',
   'redux',
-  'reset-css',
   'prop-types',
+  'material-ui',
 ];
 
 module.exports = {
   devtool: isDebug ? 'source-map' : '',
   entry: {
-    bundle: ['whatwg-fetch', 'babel-polyfill', './src/index.jsx'],
+    bundle: ['./src/index.tsx'],
     vendor: VENDOR_LIBS,
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
+    publicPath: '/',
   },
 
   resolve: {
@@ -33,24 +34,23 @@ module.exports = {
       'src',
       'node_modules',
     ],
-    extensions: ['.js', '.jsx'],
+    extensions: [".ts", ".tsx", ".js", ".json"]
   },
 
   module: {
     rules: [
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
+        test: /\.tsx?$/,
         enforce: 'pre',
-        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader: 'tslint-loader',
+        options: { /* Loader options go here */ },
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: isDebug,
-        },
+        loader: 'ts-loader',
       },
       {
         test: /\.css$/,
@@ -96,7 +96,12 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
+      name: 'vendor',
+      minChunks: Infinity,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity,
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -105,12 +110,6 @@ module.exports = {
   ],
 
   devServer: {
-    disableHostCheck: true,
-    host: '0.0.0.0',
     historyApiFallback: true,
-  },
-
-  performance: {
-    hints: !isDebug,
   },
 };

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "target": "es5",
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "stripInternal": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true,
+    "declaration": false,
+    "jsx": "react",
+    "lib": [
+      "es2017",
+      "dom",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "./src",
+    "./showcase"
+  ]
+}

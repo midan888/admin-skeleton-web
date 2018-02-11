@@ -10,35 +10,39 @@ class Form extends Component {
     requestAdminData(match.params.id);
   }
 
-  render() {
-    const { form } = this.props;
+  onFieldChange = (aa) => {
+    console.log('1');
+  }
 
+  render() {
     return (
       <div>
-        <FormGroup>
-          <FormControl>
-            <InputLabel htmlFor="first-name">First name</InputLabel>
-            <Input id="first-name" value={form.firstName} />
-          </FormControl>
-        </FormGroup>
-        <FormGroup>
-          <FormControl>
-            <InputLabel htmlFor="last-name">Last name</InputLabel>
-            <Input id="last-name" value={form.lastName} />
-          </FormControl>
-        </FormGroup>
-        <FormGroup>
-          <FormControl>
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <Input id="email" value={form.email} />
-          </FormControl>
-        </FormGroup>
-        <FormGroup>
-          <FormControl>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input id="password" value={form.password} />
-          </FormControl>
-        </FormGroup>
+        <form>
+          <FormGroup>
+            <FormControl>
+              <InputLabel htmlFor="first-name" onChange={this.onFieldChange}>First name</InputLabel>
+              <Input id="first-name" value={form.firstName} />
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormControl>
+              <InputLabel htmlFor="last-name">Last name</InputLabel>
+              <Input id="last-name" value={form.lastName} />
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormControl>
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <Input id="email" value={form.email} />
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormControl>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input id="password" value={form.password} />
+            </FormControl>
+          </FormGroup>
+        </form>
       </div>
     );
   }

@@ -1,5 +1,4 @@
-
-const request = (url, data) => {
+const request = (url: string, data: any) => {
   const headers = new Headers();
 
   headers.append('Content-Type', 'application/json');
@@ -14,4 +13,3 @@ const request = (url, data) => {
 };
 
 export default request;
-
