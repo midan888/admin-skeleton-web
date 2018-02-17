@@ -4,14 +4,16 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import AdminForm from '../admin/AdminForm/AdminForm';
-import Layout from './Layout/Layout';
+import AdminForm from '../admin/AdminForm';
+import AdminPage from '../admin/AdminPage';
+import Layout from './layout/Layout';
 
 const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
         <Route path="/admin/create" component={AdminForm} />
+        <Route path="/admin" component={AdminPage}/>
       </Switch>
     </Layout>
   </BrowserRouter>

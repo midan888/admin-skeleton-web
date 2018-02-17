@@ -2,7 +2,7 @@ import { combineReducers, AnyAction } from 'redux';
 import reducer from './AdminForm/reducer';
 
 const adminReducers = combineReducers({
-  createForm: reducer,
+  form: reducer,
 });
 
 export default adminReducers;

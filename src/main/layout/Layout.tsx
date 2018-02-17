@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from './Header';
 import withStyles, { WithStyles, StyledComponentProps } from 'material-ui/styles/withStyles';
+import Nav from './Nav';
 
 const styles = {
   root: {
@@ -20,6 +21,7 @@ export type PropsWithStyles = Props & WithStyles<ClassKeys>;
 const Layout = ({ classes, children }: PropsWithStyles) => (
   <div className={classes.root}>
     <Header />
+    <Nav />
     {children}
   </div>
 );

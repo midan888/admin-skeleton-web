@@ -1,7 +1,8 @@
 import { IAction } from '../../main/interface';
 import { ADMIN_FORM_CHANGE_MODEL } from './actions';
+import { IAdminFormState } from './interfaces';
 
-const initialState = {
+const initialState: IAdminFormState = {
   model: {
     firstName: '',
     lastName: '',

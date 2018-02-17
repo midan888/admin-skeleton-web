@@ -9,7 +9,7 @@ const request = (url: string, data: any) => {
     body: JSON.stringify(data),
   };
 
-  return fetch(`http://127.0.0.1:4000${url}`, options).then(res => res.json());
+  return fetch(`http://127.0.0.1:4000/${url}`, options).then(res => res.json());
 };
 
 export default request;

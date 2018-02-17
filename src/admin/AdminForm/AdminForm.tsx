@@ -1,21 +1,24 @@
 import * as React from 'react';
-import { TextField } from 'material-ui';
+import TextField from 'material-ui/TextField';
+import FormGroup from 'material-ui/Form/FormGroup';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
+import Button from 'material-ui/Button';
 import withStyles, {
   WithStyles,
   StyleRulesCallback,
   StyledComponentProps,
 } from 'material-ui/styles/withStyles';
-import { IAdminModel } from './interfaces';
+import { connect } from 'react-redux';
+import { IAdminModel, ChangeModelType, SubmitModelType } from './interfaces';
 
 export type ClassKeys = 'root' | 'formGroup';
 
-export type State = {
+export type Props = {
   model: IAdminModel;
+  changeModel: ChangeModelType;
+  submitModel: SubmitModelType;
 };
-
-export type Props = WithStyles<ClassKeys>;
 
 export const styles: StyleRulesCallback<ClassKeys> = theme => ({
   root: {
@@ -26,25 +29,20 @@ export const styles: StyleRulesCallback<ClassKeys> = theme => ({
   },
 });
 
-class AdminForm extends React.Component<Props> {
-  state: State;
-
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      model: {
-        firstName: '',
-        lastName: '',
-        password: '',
-        confirmPassword: '',
-        email: '',
-      },
-    };
-  }
-
+class AdminForm extends React.Component<Props & WithStyles<ClassKeys>> {
   handleFieldChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.currentTarget;
+    const { changeModel, model } = this.props;
+
+    model[name] = value;
+
+    changeModel(model);
+  }
+
+  handleSubmit = (event: React.MouseEvent<HTMLInputElement>): void => {
+    const { model, submitModel } = this.props;
+
+    submitModel(model);
   }
 
   render() {
@@ -86,9 +84,10 @@ class AdminForm extends React.Component<Props> {
             label="Confirm password"
           />
         </form>
+        <Button variant="raised" onClick={this.handleSubmit}>Create Admin</Button>
       </Paper>
     );
   }
 }
 
-export default withStyles(styles)<{}>(AdminForm);
+export default withStyles(styles)(AdminForm);
