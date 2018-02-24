@@ -7,6 +7,7 @@ import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
 import { History } from 'history';
 import { withStyles, WithStyles, StyleRules } from 'material-ui/es/styles';
 import PageHeader from '../../main/layout/PageHeader';
+import AdminSearch from '../AdminSearch';
 
 const styles: StyleRules = {
   root: {
@@ -44,6 +45,7 @@ const AdminPage = ({ classes, history }: Props) => (
       buttonTitle="Create"
       onButtonClick={onButtonClick(history)}
     />
+    <AdminSearch />
   </Paper>
 );
 

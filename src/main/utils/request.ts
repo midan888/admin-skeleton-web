@@ -9,7 +9,9 @@ const request = (url: string, data: any) => {
     body: JSON.stringify(data),
   };
 
-  return fetch(`http://127.0.0.1:4000/${url}`, options).then(res => res.json());
+  const slashCleanUrl = url.replace(/^\//, '');
+
+  return fetch(`http://127.0.0.1:4000/${slashCleanUrl}`, options).then(res => res.json());
 };
 
 export default request;

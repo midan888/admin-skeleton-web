@@ -11,7 +11,7 @@ import { SideBarStatus, ICloseSideBar, IChangeUrl } from "./interfaces";
 import { closeSideBar, changeUrl } from './action';
 import { History } from 'history';
 import { RouteComponentProps } from 'react-router-dom';
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 
 export interface Props extends RouteComponentProps<any>{
   sideBarStatus: SideBarStatus;

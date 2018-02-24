@@ -4,8 +4,8 @@ export type IAdminModel = {
   firstName: string;
   lastName: string;
   email: string;
-  password: string;
-  confirmPassword: string;
+  password?: string;
+  confirmPassword?: string;
   [key:string]: string;
 };
 

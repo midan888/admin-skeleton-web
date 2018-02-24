@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const RuntimeAnalyzerPlugin = require('webpack-runtime-analyzer');
 
 const env = process.env.NODE_ENV;
 
@@ -11,10 +12,12 @@ const VENDOR_LIBS = [
   'react',
   'react-dom',
   'react-redux',
+  'react-router-dom',
   'react-router',
   'redux',
-  'prop-types',
+  'redux-thunk',
   'material-ui',
+  'material-ui-icons'
 ];
 
 module.exports = {
@@ -107,6 +110,7 @@ module.exports = {
       template: './src/index.html',
     }),
     new ExtractTextPlugin('styles.css'),
+    new RuntimeAnalyzerPlugin(),
   ],
 
   devServer: {

@@ -12,3 +12,9 @@ export interface IRootState {
 }
 
 export type RequestType = (url: string, data: any) => Promise<any>;
+
+export interface IAdministrator {
+  firstName: string;
+  lastName: string;
+  email: string;
+}

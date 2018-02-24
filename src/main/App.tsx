@@ -12,6 +12,7 @@ const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
+        <Route path="/admin/:id" component={AdminForm} />
         <Route path="/admin/create" component={AdminForm} />
         <Route path="/admin" component={AdminPage}/>
       </Switch>

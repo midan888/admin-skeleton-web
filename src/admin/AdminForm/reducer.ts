@@ -12,7 +12,7 @@ const initialState: IAdminFormState = {
   },
 };
 
-const reducer = (state = initialState, { type, payload }: IAction) => {
+export const reducer = (state = initialState, { type, payload }: IAction) => {
   switch (type) {
     case ADMIN_FORM_CHANGE_MODEL:
       return {
@@ -25,4 +25,4 @@ const reducer = (state = initialState, { type, payload }: IAction) => {
   }
 };
 
-export default reducer;
+
