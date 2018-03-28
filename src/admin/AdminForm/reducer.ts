@@ -4,6 +4,7 @@ import { IAdminFormState } from './interfaces';
 
 const initialState: IAdminFormState = {
   model: {
+    id: 0,
     firstName: '',
     lastName: '',
     email: '',

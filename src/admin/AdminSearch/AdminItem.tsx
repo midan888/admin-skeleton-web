@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { IAdministrator } from './interfaces'
-import {connect} from "react-redux";
+import { IAdministrator } from './interfaces';
+import { connect } from 'react-redux';
 import Typography from 'material-ui/Typography';
-import EditIcon from 'material-ui-icons/Edit';
-import { History } from "history";
+import Edit from 'material-ui-icons/Edit';
+import { History } from 'history';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { StyleRules, withStyles, WithStyles, StyleRulesCallback } from "material-ui/styles";
+import { StyleRules, withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
 
 type Props = {
   key: number;
   data: IAdministrator;
-}
+};
 
-type PropsWithStyles = Props & WithStyles<"root" | "editIcon"> & RouteComponentProps<any>;
+type PropsWithStyles = Props & WithStyles<'root' | 'editIcon'> & RouteComponentProps<any>;
 
 const styles: StyleRulesCallback = () => ({
   root: {
@@ -25,12 +25,12 @@ const styles: StyleRulesCallback = () => ({
   },
   editIcon: {
     cursor: 'pointer',
-  }
+  },
 });
 
 const handleEditClick = (history: History, id: number) => () => {
-  history.push(`/admin/${id}`)
-}
+  history.push(`/admin/${id}`);
+};
 
 export const AdminItem: React.SFC<PropsWithStyles> = ({
   data,
@@ -51,7 +51,7 @@ export const AdminItem: React.SFC<PropsWithStyles> = ({
       <Typography>{data.email}</Typography>
     </div>
     <div>
-      <EditIcon
+      <Edit
         className={classes.editIcon}
         onClick={handleEditClick(history, data.id)}
       />

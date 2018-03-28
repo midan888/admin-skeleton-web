@@ -20,6 +20,7 @@ export type Props = {
   changeModel: ChangeModelType;
   submitModel: SubmitModelType;
   requestAdmin: any;
+  requestAdminDelete: any;
 };
 
 export const styles: StyleRulesCallback<ClassKeys> = theme => ({
@@ -34,8 +35,11 @@ export const styles: StyleRulesCallback<ClassKeys> = theme => ({
 class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteComponentProps<any>> {
   componentDidMount() {
     const { requestAdmin, match } = this.props;
+    const adminId = match.params.id;
 
-    requestAdmin(match.params.id);
+    if (adminId) {
+      requestAdmin(adminId);
+    }
   }
 
   handleFieldChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -59,6 +63,13 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
     return Boolean(model.id);
   }
 
+  handleDeleteClick = async () => {
+    const { model, requestAdminDelete, history } = this.props;
+
+    requestAdminDelete(model.id);
+    history.push('/admin');
+  }
+
   render() {
     const { classes, model } = this.props;
 
@@ -71,33 +82,44 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.firstName}
-            id="name"
             label="First name"
           />
           <TextField
             fullWidth={true}
+            onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.lastName}
-            id="name"
+            name="lastName"
             label="Last name"
           />
           <TextField
             fullWidth={true}
+            onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.email}
-            id="name"
-            label="email"
+            name="email"
+            label="Email"
           />
           <TextField
             fullWidth={true}
+            onChange={this.handleFieldChange}
             className={classes.formGroup}
-            id="name"
+            value={model.email}
+            name="phoneNumber"
+            label="Phone number"
+          />
+          <TextField
+            fullWidth={true}
+            onChange={this.handleFieldChange}
+            className={classes.formGroup}
+            name="password"
             label="Password"
           />
           <TextField
             fullWidth={true}
+            onChange={this.handleFieldChange}
             className={classes.formGroup}
-            id="name"
+            name="confirmPassword"
             label="Confirm password"
           />
         </form>
@@ -108,6 +130,14 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
         >
           {this.isEditMode() ? 'Create Admin' : 'Edit admin'}
         </Button>
+        {this.isEditMode() && (
+          <Button
+            variant="raised"
+            onClick={this.handleDeleteClick}
+          >
+            Delete admin
+          </Button>
+        )}
       </Paper>
     );
   }

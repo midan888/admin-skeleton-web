@@ -7,6 +7,6 @@ export interface IAdminSearchState {
 }
 
 export {
-  IAdministrator
-}
+  IAdministrator,
+};
 

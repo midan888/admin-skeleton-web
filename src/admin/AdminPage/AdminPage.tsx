@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
-import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { History } from 'history';
 import { withStyles, WithStyles, StyleRules } from 'material-ui/es/styles';
 import PageHeader from '../../main/layout/PageHeader';
@@ -23,8 +23,8 @@ const styles: StyleRules = {
   },
   buttonWrap: {
     marginBottom: 16,
-  }
-}
+  },
+};
 
 export type ClassKeys = 'root' | 'content' | 'buttonWrap' | 'pageHeader';
 
@@ -35,7 +35,7 @@ interface Props extends RouteStyleInterface {
 }
 
 const onButtonClick = (history: History) => () => {
-  history.push('/admin/create')
+  history.push('/admin/create');
 };
 
 const AdminPage = ({ classes, history }: Props) => (

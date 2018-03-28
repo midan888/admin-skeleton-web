@@ -12,9 +12,9 @@ const App = () => (
   <BrowserRouter>
     <Layout>
       <Switch>
-        <Route path="/admin/:id" component={AdminForm} />
-        <Route path="/admin/create" component={AdminForm} />
-        <Route path="/admin" component={AdminPage}/>
+        <Route exact path="/admin" component={AdminPage} />
+        <Route path="/admin/form/:id" component={AdminForm} />
+        <Route path="/admin/form" component={AdminForm} />
       </Switch>
     </Layout>
   </BrowserRouter>

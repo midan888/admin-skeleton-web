@@ -4,7 +4,7 @@ import { IAdminSearchState } from './AdminSearch/interfaces';
 export type IAdminState = {
   form: IAdminFormState;
   search: IAdminSearchState;
-}
+};
 
 export interface IAdministrator {
   id: number;

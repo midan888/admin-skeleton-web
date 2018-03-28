@@ -98,19 +98,9 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity,
-    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new ExtractTextPlugin('styles.css'),
-    new RuntimeAnalyzerPlugin(),
   ],
 
   devServer: {

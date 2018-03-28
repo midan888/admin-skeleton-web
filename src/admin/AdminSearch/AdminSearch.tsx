@@ -30,10 +30,10 @@ class AdminSearch extends React.Component<Props> {
 
 const mapState = ({ admin }: IRootState) => ({
   items: admin.search.items,
-})
+});
 
 const mapDispatch = {
   requestAdmins,
-}
+};
 
 export default connect(mapState, mapDispatch)(AdminSearch);

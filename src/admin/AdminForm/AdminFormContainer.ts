@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AdminForm from './AdminForm';
-import { changeModel, submitModel, requestAdmin } from './actions';
+import { changeModel, submitModel, requestAdmin, requestAdminDelete } from './actions';
 import { IRootState } from '../../main/interface';
 
 const mapState = ({ admin }: IRootState) => ({
@@ -11,6 +11,7 @@ const mapDispatch = {
   changeModel,
   submitModel,
   requestAdmin,
+  requestAdminDelete,
 };
 
 export default connect(mapState, mapDispatch)(AdminForm);
