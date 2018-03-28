@@ -10,7 +10,7 @@ interface Props {
   buttonTitle: string;
 }
 
-type PropsWithStyles = Props & WithStyles<"root" | "row">;
+type PropsWithStyles = Props & WithStyles<'root' | 'row'>;
 
 const styles: StyleRulesCallback = () => ({
   root: {},
@@ -18,7 +18,7 @@ const styles: StyleRulesCallback = () => ({
     display: 'flex',
     justifyContent: 'space-between',
     marginBottom: 8,
-  }
+  },
 });
 
 const PageHeader = ({ title, buttonTitle, classes, onButtonClick }: PropsWithStyles) => (

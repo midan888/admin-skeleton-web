@@ -28,7 +28,7 @@ const styles: StyleRules = {
 
 export type ClassKeys = 'root' | 'content' | 'buttonWrap' | 'pageHeader';
 
-export type  RouteStyleInterface = RouteComponentProps<any> & WithStyles<ClassKeys>
+export type  RouteStyleInterface = RouteComponentProps<any> & WithStyles<ClassKeys>;
 
 interface Props extends RouteStyleInterface {
 

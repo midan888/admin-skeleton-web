@@ -27,6 +27,6 @@ const Header = ({ openSideBar }: Props) => (
 
 const mapDispatch = {
   openSideBar,
-}
+};
 
 export default connect(null, mapDispatch)(Header);

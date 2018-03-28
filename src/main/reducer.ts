@@ -1,6 +1,6 @@
 import { combineReducers, AnyAction } from 'redux';
-import admin from '../admin/reducer';
-import layout from './layout/reducer';
+import { adminReducers as admin } from '../admin/reducer';
+import { reducer as layout } from './layout/reducer';
 
 const root = combineReducers({
   admin,

@@ -11,7 +11,7 @@ const initialState: ILayoutState = {
   activeRoute: '/',
 };
 
-const reducer = (state = initialState, { type, payload }: IAction) => {
+export const reducer = (state = initialState, { type, payload }: IAction) => {
   switch (type) {
     case LAYOUT_SIDEBAR_OPEN:
       return {
@@ -27,11 +27,10 @@ const reducer = (state = initialState, { type, payload }: IAction) => {
       return {
         ...state,
         activeRoute: payload,
-      }
+      };
     default: {
       return state;
     }
   }
 };
 
-export default reducer;

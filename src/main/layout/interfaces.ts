@@ -1,5 +1,5 @@
-import { IAction } from "../interface";
-import { LAYOUT_SIDEBAR_CLOSE } from './action'
+import { IAction } from '../interface';
+import { LAYOUT_SIDEBAR_CLOSE } from './action';
 
 export enum SideBarStatus {
   closed = 'closed',
@@ -9,7 +9,7 @@ export enum SideBarStatus {
 export type ILayoutState = {
   sideBarStatus: SideBarStatus;
   activeRoute: string;
-}
+};
 
 export type ICloseSideBar = () => IAction;
 export type IOpenSideBar = () => IAction;

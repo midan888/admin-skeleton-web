@@ -6,12 +6,12 @@ import { MenuList, MenuItem } from 'material-ui/Menu';
 import Typography from 'material-ui/Typography';
 import { Person } from 'material-ui-icons';
 import { connect } from 'react-redux';
-import { IRootState } from '../interface';
-import { SideBarStatus, ICloseSideBar, IChangeUrl } from "./interfaces";
-import { closeSideBar, changeUrl } from './action';
 import { History } from 'history';
-import { RouteComponentProps } from 'react-router-dom';
-import { withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+
+import { IRootState } from '../interface';
+import { SideBarStatus, ICloseSideBar, IChangeUrl } from './interfaces';
+import { closeSideBar, changeUrl } from './action';
 
 export interface Props extends RouteComponentProps<any>{
   sideBarStatus: SideBarStatus;
@@ -32,7 +32,7 @@ class Nav extends React.Component<Props> {
 
     return (
       <Drawer
-        anchor='left'
+        anchor="left"
         open={sideBarStatus === SideBarStatus.open}
         onClose={closeSideBar}
       >
