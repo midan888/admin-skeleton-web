@@ -104,7 +104,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             fullWidth={true}
             onChange={this.handleFieldChange}
             className={classes.formGroup}
-            value={model.email}
+            value={model.phoneNumber}
             name="phoneNumber"
             label="Phone number"
           />
@@ -128,7 +128,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
           color="primary"
           onClick={this.handleSubmit}
         >
-          {this.isEditMode() ? 'Create Admin' : 'Edit admin'}
+          {this.isEditMode() ? 'Edit admin' : 'Create Admin'}
         </Button>
         {this.isEditMode() && (
           <Button

@@ -13,8 +13,8 @@ const App = () => (
     <Layout>
       <Switch>
         <Route exact path="/admin" component={AdminPage} />
-        <Route path="/admin/form/:id" component={AdminForm} />
-        <Route path="/admin/form" component={AdminForm} />
+        <Route exact path="/admin/form/:id" component={AdminForm} />
+        <Route exact path="/admin/form" component={AdminForm} />
       </Switch>
     </Layout>
   </BrowserRouter>

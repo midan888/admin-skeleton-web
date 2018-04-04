@@ -18,7 +18,9 @@ export const reducer = (state = initialState, { type, payload }: IAction) => {
     case ADMIN_FORM_CHANGE_MODEL:
       return {
         ...state,
-        model: payload.model,
+        model: {
+          ...payload.model,
+        },
       };
     default: {
       return state;

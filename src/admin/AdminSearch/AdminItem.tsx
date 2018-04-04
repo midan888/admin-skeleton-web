@@ -29,7 +29,7 @@ const styles: StyleRulesCallback = () => ({
 });
 
 const handleEditClick = (history: History, id: number) => () => {
-  history.push(`/admin/${id}`);
+  history.push(`/admin/form/${id}`);
 };
 
 export const AdminItem: React.SFC<PropsWithStyles> = ({
