@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb"
+  ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "test": true,
+    "expect": true,
+    "describe": true,
+    "jest": true
+  },
+  "rules": {
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": {
+          "resolve": {
+            "modules": [
+              "src",
+              "node_modules"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

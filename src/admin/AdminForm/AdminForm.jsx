@@ -1,29 +1,10 @@
 import * as React from 'react';
 import TextField from 'material-ui/TextField';
-import FormGroup from 'material-ui/Form/FormGroup';
 import Paper from 'material-ui/Paper';
-import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import { RouteComponentProps } from 'react-router-dom';
-import withStyles, {
-  WithStyles,
-  StyleRulesCallback,
-  StyledComponentProps,
-} from 'material-ui/styles/withStyles';
-import { connect } from 'react-redux';
-import { IAdminModel, ChangeModelType, SubmitModelType } from './interfaces';
+import withStyles from 'material-ui/styles/withStyles';
 
-export type ClassKeys = 'root' | 'formGroup';
-
-export type Props = {
-  model: IAdminModel;
-  changeModel: ChangeModelType;
-  submitModel: SubmitModelType;
-  requestAdmin: any;
-  requestAdminDelete: any;
-};
-
-export const styles: StyleRulesCallback<ClassKeys> = theme => ({
+export const styles = () => ({
   root: {
     padding: 16,
   },
@@ -32,7 +13,7 @@ export const styles: StyleRulesCallback<ClassKeys> = theme => ({
   },
 });
 
-class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteComponentProps<any>> {
+class AdminForm extends React.Component {
   componentDidMount() {
     const { requestAdmin, match } = this.props;
     const adminId = match.params.id;
@@ -42,7 +23,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
     }
   }
 
-  handleFieldChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  handleFieldChange = (event) => {
     const { name, value } = event.currentTarget;
     const { changeModel, model } = this.props;
 
@@ -51,7 +32,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
     changeModel(model);
   }
 
-  handleSubmit = (event: React.MouseEvent<HTMLInputElement>): void => {
+  handleSubmit = () => {
     const { model, submitModel } = this.props;
 
     submitModel(model);
@@ -75,9 +56,9 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
 
     return (
       <Paper className={classes.root}>
-        <form noValidate={true} autoComplete="off">
+        <form noValidate autoComplete="off">
           <TextField
-            fullWidth={true}
+            fullWidth
             name="firstName"
             onChange={this.handleFieldChange}
             className={classes.formGroup}
@@ -85,7 +66,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             label="First name"
           />
           <TextField
-            fullWidth={true}
+            fullWidth
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.lastName}
@@ -93,7 +74,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             label="Last name"
           />
           <TextField
-            fullWidth={true}
+            fullWidth
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.email}
@@ -101,7 +82,7 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             label="Email"
           />
           <TextField
-            fullWidth={true}
+            fullWidth
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             value={model.phoneNumber}
@@ -109,14 +90,14 @@ class AdminForm extends React.Component<Props & WithStyles<ClassKeys> & RouteCom
             label="Phone number"
           />
           <TextField
-            fullWidth={true}
+            fullWidth
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             name="password"
             label="Password"
           />
           <TextField
-            fullWidth={true}
+            fullWidth
             onChange={this.handleFieldChange}
             className={classes.formGroup}
             name="confirmPassword"

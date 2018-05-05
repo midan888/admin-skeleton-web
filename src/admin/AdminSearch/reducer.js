@@ -1,11 +1,10 @@
-import { IAdminSearchState, IAction } from './interfaces';
 import { ADMIN_SEARCH_SET_ADMINS } from './actions';
 
-const initialState: IAdminSearchState = {
+const initialState = {
   items: [],
 };
 
-export const reducer = (state = initialState, { type, payload }: IAction) => {
+const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADMIN_SEARCH_SET_ADMINS:
       return {
@@ -17,3 +16,5 @@ export const reducer = (state = initialState, { type, payload }: IAction) => {
     }
   }
 };
+
+export default reducer;

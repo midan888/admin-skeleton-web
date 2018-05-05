@@ -1,8 +1,6 @@
-import { IAction } from '../../main/interface';
 import { ADMIN_FORM_CHANGE_MODEL } from './actions';
-import { IAdminFormState } from './interfaces';
 
-const initialState: IAdminFormState = {
+const initialState = {
   model: {
     id: 0,
     firstName: '',
@@ -13,7 +11,7 @@ const initialState: IAdminFormState = {
   },
 };
 
-export const reducer = (state = initialState, { type, payload }: IAction) => {
+const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADMIN_FORM_CHANGE_MODEL:
       return {
@@ -28,4 +26,4 @@ export const reducer = (state = initialState, { type, payload }: IAction) => {
   }
 };
 
-
+export default reducer;

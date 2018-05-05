@@ -3,25 +3,23 @@ import {
   LAYOUT_SIDEBAR_CLOSE,
   LAYOUT_URL_CHANGE,
 } from './action';
-import { ILayoutState, SideBarStatus } from './interfaces';
-import { IAction } from '../interface';
 
-const initialState: ILayoutState = {
-  sideBarStatus: SideBarStatus.closed,
+const initialState = {
+  sideBarStatus: 1,
   activeRoute: '/',
 };
 
-export const reducer = (state = initialState, { type, payload }: IAction) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LAYOUT_SIDEBAR_OPEN:
       return {
         ...state,
-        sideBarStatus: SideBarStatus.open,
+        sideBarStatus: 1,
       };
     case LAYOUT_SIDEBAR_CLOSE:
       return {
         ...state,
-        sideBarStatus: SideBarStatus.closed,
+        sideBarStatus: 0,
       };
     case LAYOUT_URL_CHANGE:
       return {
@@ -34,3 +32,4 @@ export const reducer = (state = initialState, { type, payload }: IAction) => {
   }
 };
 
+export default reducer;

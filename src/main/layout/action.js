@@ -10,10 +10,7 @@ export const closeSideBar = () => ({
   type: LAYOUT_SIDEBAR_CLOSE,
 });
 
-export const changeUrl = (url: string) => {
-
-  return {
-    type: LAYOUT_SIDEBAR_CLOSE,
-    payload: url,
-  };
-};
+export const changeUrl = url => ({
+  type: LAYOUT_SIDEBAR_CLOSE,
+  payload: url,
+});

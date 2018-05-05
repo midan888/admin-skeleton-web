@@ -1,16 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { IAdministrator } from './interfaces';
-import { IRootState } from '../../main/interface';
+
 import { requestAdmins } from './actions';
 import AdminItem from './AdminItem';
 
-interface Props {
-  items: IAdministrator[];
-  requestAdmins: any;
-}
-
-class AdminSearch extends React.Component<Props> {
+class AdminSearch extends React.Component {
   componentDidMount() {
     this.props.requestAdmins();
   }
@@ -28,7 +22,7 @@ class AdminSearch extends React.Component<Props> {
   }
 }
 
-const mapState = ({ admin }: IRootState) => ({
+const mapState = ({ admin }) => ({
   items: admin.search.items,
 });
 

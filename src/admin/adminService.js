@@ -1,7 +1,6 @@
 import request from '../main/utils/request';
-import { IAdministrator } from './interfaces';
 
-export const findAdminById = async (id: number): Promise<IAdministrator> => {
+export const findAdminById = async (id) => {
   const data = await request('admin/findOne', {
     id,
   });
@@ -9,7 +8,7 @@ export const findAdminById = async (id: number): Promise<IAdministrator> => {
   return data;
 };
 
-export const deleteAdmin = async(id: number): Promise<void> => {
+export const deleteAdmin = async (id) => {
   const data = await request('admin/deleteOne', {
     id,
   });

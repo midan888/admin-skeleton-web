@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import AdminForm from './AdminForm';
 import { changeModel, submitModel, requestAdmin, requestAdminDelete } from './actions';
-import { IRootState } from '../../main/interface';
 
-const mapState = ({ admin }: IRootState) => ({
+const mapState = ({ admin }) => ({
   model: admin.form.model,
 });
 

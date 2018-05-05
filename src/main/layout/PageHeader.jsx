@@ -2,17 +2,9 @@ import * as React from 'react';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 
-interface Props {
-  onButtonClick: any;
-  title: string;
-  buttonTitle: string;
-}
-
-type PropsWithStyles = Props & WithStyles<'root' | 'row'>;
-
-const styles: StyleRulesCallback = () => ({
+const styles = () => ({
   root: {},
   row: {
     display: 'flex',
@@ -21,7 +13,12 @@ const styles: StyleRulesCallback = () => ({
   },
 });
 
-const PageHeader = ({ title, buttonTitle, classes, onButtonClick }: PropsWithStyles) => (
+const PageHeader = ({
+  title,
+  buttonTitle,
+  classes,
+  onButtonClick,
+}) => (
   <div className={classes.root}>
     <div className={classes.row}>
       <Typography variant="headline">{title}</Typography>
@@ -37,4 +34,4 @@ const PageHeader = ({ title, buttonTitle, classes, onButtonClick }: PropsWithSty
   </div>
 );
 
-export default withStyles(styles)<Props>(PageHeader);
+export default withStyles(styles)(PageHeader);

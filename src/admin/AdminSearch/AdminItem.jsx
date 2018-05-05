@@ -1,20 +1,10 @@
 import * as React from 'react';
-import { IAdministrator } from './interfaces';
-import { connect } from 'react-redux';
 import Typography from 'material-ui/Typography';
 import Edit from 'material-ui-icons/Edit';
-import { History } from 'history';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { StyleRules, withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+import { withRouter } from 'react-router-dom';
+import withStyles from 'material-ui/styles/withStyles';
 
-type Props = {
-  key: number;
-  data: IAdministrator;
-};
-
-type PropsWithStyles = Props & WithStyles<'root' | 'editIcon'> & RouteComponentProps<any>;
-
-const styles: StyleRulesCallback = () => ({
+const styles = () => ({
   root: {
     flex: '0 1 auto',
     flexFlow: 'row wrap',
@@ -28,11 +18,11 @@ const styles: StyleRulesCallback = () => ({
   },
 });
 
-const handleEditClick = (history: History, id: number) => () => {
+const handleEditClick = (history, id) => () => {
   history.push(`/admin/form/${id}`);
 };
 
-export const AdminItem: React.SFC<PropsWithStyles> = ({
+const AdminItem = ({
   data,
   classes,
   history,
@@ -59,4 +49,4 @@ export const AdminItem: React.SFC<PropsWithStyles> = ({
   </div>
 );
 
-export default withStyles(styles)<Props>(withRouter(AdminItem));
+export default withStyles(styles)(withRouter(AdminItem));

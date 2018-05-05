@@ -6,13 +6,8 @@ import IconButton from 'material-ui/IconButton';
 import Menu from 'material-ui-icons/Menu';
 import { connect } from 'react-redux';
 import { openSideBar } from './action';
-import { ICloseSideBar } from './interfaces';
 
-export interface Props {
-  openSideBar: ICloseSideBar;
-}
-
-const Header = ({ openSideBar }: Props) => (
+const Header = () => (
   <AppBar color="default">
     <Toolbar>
       <IconButton onClick={openSideBar}>

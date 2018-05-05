@@ -1,8 +1,6 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const RuntimeAnalyzerPlugin = require('webpack-runtime-analyzer');
 
 const env = process.env.NODE_ENV;
 
@@ -17,13 +15,13 @@ const VENDOR_LIBS = [
   'redux',
   'redux-thunk',
   'material-ui',
-  'material-ui-icons'
+  'material-ui-icons',
 ];
 
 module.exports = {
   devtool: isDebug ? 'source-map' : '',
   entry: {
-    bundle: ['./src/index.tsx'],
+    bundle: ['babel-polyfill', './src/index.jsx'],
     vendor: VENDOR_LIBS,
   },
   output: {
@@ -37,23 +35,22 @@ module.exports = {
       'src',
       'node_modules',
     ],
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.js', '.jsx', '.json'],
   },
 
   module: {
     rules: [
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         enforce: 'pre',
         exclude: /node_modules/,
-        loader: 'tslint-loader',
-        options: { /* Loader options go here */ },
+        loader: 'eslint-loader',
       },
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
